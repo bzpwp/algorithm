@@ -1,4 +1,0 @@
-# https://tjkendev.github.io/procon-library/python/
-# いかたこ
-# 写像12相
-# 数え上げ https://degwer.hatenablog.com/entries/2017/12/20
