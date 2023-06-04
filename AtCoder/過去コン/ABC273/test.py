@@ -1,0 +1,3 @@
+ls = []
+
+print(ls.pop())

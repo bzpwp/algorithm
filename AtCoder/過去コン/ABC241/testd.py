@@ -1,0 +1,8 @@
+qu = input()
+print(qu[0])
+print(qu[1])
+print(qu[2])
+print(qu)
+c,x = map(int, qu.split())
+print(c)
+print(x)

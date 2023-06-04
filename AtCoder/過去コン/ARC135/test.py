@@ -1,0 +1,1 @@
+[math.floor(x/2)]*dd[math.ceil(x/2)]%998244353

@@ -1,0 +1,66 @@
+{
+	"numbers": {
+		"prefix": "nn",
+		"body": [
+			"a,b = map(int,input().split())"
+		],
+		"description": "input numbers"
+	},
+	"characters": {
+		"prefix": "ss",
+		"body": [
+			"a,b = input().split()"
+		],
+		"description": "input characters"
+	},
+	"number": {
+		"prefix": "n",
+		"body": [
+			"n = int(input())"
+		],
+		"description": "input number"
+	},
+	"character": {
+		"prefix": "s",
+		"body": [
+			"s = input()"
+		],
+		"description": "input character"
+	},
+	"numbers list": {
+		"prefix": "nl",
+		"body": [
+			"ls = list(map(int,input().split())"
+		],
+		"description": "input numbers list"
+	},
+	"characters list": {
+		"prefix": "sl",
+		"body": [
+			"ls = list(input().split()"
+		],
+		"description": "input characters list"
+	},
+	"grid": {
+		"prefix": "grid",
+		"body": [
+			"h,w = input().split()",
+			"grid = [list(map(int,input().split())) for _ in range(h)]"
+		],
+		"description": "input grid"
+	},
+	"dp1": {
+		"prefix": "dp1",
+		"body": [
+			"dp = [$1 for _ in range(n)]"
+		],
+		"description": "init dp arrays of 1 dimension"
+	},
+	"dp2": {
+		"prefix": "dp2",
+		"body": [
+			"dp = [[$1 for _ in range(n)] for _ in range($2)]"
+		],
+		"description": "init dp arrays of 2 dimensions"
+	}
+}
