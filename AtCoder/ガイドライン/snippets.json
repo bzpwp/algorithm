@@ -30,21 +30,21 @@
 	"numbers list": {
 		"prefix": "nl",
 		"body": [
-			"ls = list(map(int,input().split())"
+			"ls = list(map(int,input().split()))"
 		],
 		"description": "input numbers list"
 	},
 	"characters list": {
 		"prefix": "sl",
 		"body": [
-			"ls = list(input().split()"
+			"ls = list(input().split())"
 		],
 		"description": "input characters list"
 	},
 	"grid": {
 		"prefix": "grid",
 		"body": [
-			"h,w = input().split()",
+			"h,w = map(int,input().split())",
 			"grid = [list(map(int,input().split())) for _ in range(h)]"
 		],
 		"description": "input grid"
