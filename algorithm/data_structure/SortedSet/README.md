@@ -1,5 +1,10 @@
 # SortedSet
 
+・要素の追加
+・要素の削除
+・x以上の最小の要素の検索
+などがO(logN)で行える
+
 平方分割を利用した SortedSet です。PyPy で動きます。平衡二分木系より速いと思います。
 
 [SortedSet](SortedSet.py)  
