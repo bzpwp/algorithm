@@ -1,26 +1,13 @@
-'''
-# segment tree, RMQ
-
-操作	segfunc	単位元
-最小値	min(x, y)	float('inf')
-最大値	max(x, y)	-float('inf')
-区間和	x + y	0
-区間積	x * y	1
-最大公約数	math.gcd(x, y)	0
-'''
-
-'''
-機能追加
-https://algo-logic.info/segment-tree/
-'''
-
 #####segfunc#####
 def segfunc(x, y):
-    return min(x, y)
+    return x + y
+
+def segfunc2(x, y):
+    return min(x,y)
 #################
 
 #####ide_ele#####
-ide_ele = float('inf')
+ide_ele = 0
 #################
 
 class SegTree:
@@ -82,12 +69,21 @@ class SegTree:
             r >>= 1
         return res
 
-a = [14, 5, 9, 13, 7, 12, 11, 1, 7, 8]
+n,k,q = map(int,input().split())
+segsum = SegTree([0]*k, segfunc, ide_ele)
+segmin = SegTree([0]*k, segfunc2, float('inf'))
+ls = [0]*n
+flag = [i+1 for _ in range(k)] + [0]*(n-k)
 
-seg = SegTree(a, segfunc, ide_ele)
+from collections import defaultdict
 
-print(len(seg.tree))
-print(seg.query(0, 8))
-print(seg.tree)
-seg.update(5, 0)
-print(seg.query(0, 8))
+for i in range(q):
+    x,y = map(int,input().split())
+    if flag[x-1]:
+        segsum.update(x-1,y)
+        segmin.update(x-1,y)
+        ls[x-1] = y
+        print(segsum.query(0,n-1))
+    else:
+        if segmin.query(0,n-1) < y:
+            
