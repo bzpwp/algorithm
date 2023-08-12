@@ -13,6 +13,8 @@
 機能追加
 https://algo-logic.info/segment-tree/
 '''
+#segment tree
+#https://qiita.com/takayg1/items/c811bd07c21923d7ec69
 
 #####segfunc#####
 def segfunc(x, y):

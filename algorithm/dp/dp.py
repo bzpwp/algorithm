@@ -59,10 +59,7 @@ for i in range(1,n+1):
         else:
             dp[i][j]=dp[i-1][j]
 ans = 0
-for i in range(W+1):
-    ans = max(dp[n][i],ans)
-print(ans)
-
+print(max(dp[-1]))
 """
 コイン問題(各種無限個)
 各値段に要する最小のコイン枚数
