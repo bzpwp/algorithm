@@ -1,28 +1,25 @@
-import heapq  # heapqライブラリのimport
+INF = float('inf')
 
-a = [1, 6, 8, 0, -1]
-heapq.heapify(a)  # リストを優先度付きキューへ
-print(a)
-# 出力: [-1, 0, 8, 1, 6] (優先度付きキューとなった a)
-print(type(a))
-print(heapq.heappop(a))  # 最小値の取り出し
-# 出力: -1 (a の最小値)
-print(a)
+V, E = map(int,input().split())    # Vは頂点数、Eは辺数
+es = []    # 辺
+for _ in range(E):
+    # 頂点fromから頂点toへのコストcostの辺
+    f, t, c = map(int,input().split())
+    es.append([f, t, c])
 
-print(heapq.heappop(a))  # 最小値の取り出し
-# 出力: -1 (a の最小値)
-print(a)
-print(heapq.heappop(a))  # 最小値の取り出し
-# 出力: -1 (a の最小値)
-print(a)
-print(heapq.heappop(a))  # 最小値の取り出し
-# 出力: -1 (a の最小値)
-print(a)
-print(heapq.heappop(a))  # 最小値の取り出し
-# 出力: -1 (a の最小値)
-print(a)
-# 出力: [0, 1, 8, 6] (最小値を取り出した後の a)
+# trueなら負の閉路が存在する
+def find_negative_loop():
+    d = [0] * V
+    
+    for i in range(V):
+        for j in range(E):
+            e = es[j]
+            if d[e[1]] > d[e[0]] + e[2]:
+                d[e[1]] = d[e[0]] + e[2]
+                
+                # n回目にも更新があるなら負の経路が存在する
+                if i == V-1:
+                    return True
+    return False
 
-heapq.heappush(a, -2)  # 要素の挿入
-print(a)
-# 出力: [-2, 0, 1, 8, 6]  (-2 を挿入後の a)
+print(find_negative_loop())
