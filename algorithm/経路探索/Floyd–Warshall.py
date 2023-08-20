@@ -1,5 +1,6 @@
+#全点対最短路問題
 
-#ワーシャルフロイド法
+
 def warshall_floyd(d):
     for k in range(n):
         for i in range(n):
