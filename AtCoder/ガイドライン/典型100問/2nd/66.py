@@ -18,8 +18,11 @@ for i in range(N-1):
         if r < dist:
             E.append((dist-r, i, j))
             E.append((dist-r, j, i))
+        else:
+            E.append((0, i, j))
+            E.append((0, j, i))
 
-print(E)
+# print(E)
 # Union-Findを使うことで頂点間の連結判定を行う
 *p, = range(N)
 def root(x):
@@ -39,6 +42,8 @@ def unite(x, y):
     return 1
  
 E.sort()
+for i in E:
+    print(i)
 ans = 0
 for c, v, w in E:
     if unite(v, w):

@@ -91,6 +91,8 @@ while True:
                 G.append((0, (i, j)))
 
     G.sort()
+    for i in G:
+        print(i)
     res = 0
     uf = UnionFind(n)
     for i in range(len(G)):
