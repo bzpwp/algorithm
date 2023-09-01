@@ -34,7 +34,9 @@ def d(fm, to):
 dp = [[INF] * n for _ in range(1 << n)]
 for first in range(n):
     dp[1 << first][first] = d(0, first)
+# dp[0][0] = 0
 
+#配るDP
 for s in range(1 << n):
     for fm in range(n):
         if not s >> fm & 1: continue    # fmがsに無い場合->スキップ
