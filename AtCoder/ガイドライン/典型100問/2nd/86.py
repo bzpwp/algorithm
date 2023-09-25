@@ -1,5 +1,6 @@
-#UnionFind
-from collections import defaultdict
+n,m = map(int,input().split())
+
+ls = [list(map(int,input().split())) for _ in range(m)]
 
 class UnionFind():
     """
@@ -141,3 +142,18 @@ class UnionFind():
         for member in range(self.n):
             group_members[self.find(member)].append(member)
         return group_members
+
+from collections import defaultdict
+A = 0
+for i in range(m):
+    dd = defaultdict(list)
+    U = UnionFind(n)
+    for j in range(m):
+        if i!= j:
+            a,b = ls[j]
+            U.unite(a,b)
+    a,b = ls[i]
+    if U.same(a,b):
+        A += 1
+
+print(m-A)

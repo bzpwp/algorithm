@@ -1,1 +1,2 @@
-print(1 << 3)
+for i in range(2,2):
+    print(i)

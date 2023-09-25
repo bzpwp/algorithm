@@ -1,3 +1,6 @@
+n,m = map(int,input().split())
+ls = [list(map(int,input().split())) for _ in range(m)]
+
 #UnionFind
 from collections import defaultdict
 
@@ -141,3 +144,24 @@ class UnionFind():
         for member in range(self.n):
             group_members[self.find(member)].append(member)
         return group_members
+
+U = UnionFind(n)
+A = (n**2-n)//2
+from collections import deque
+q = deque()
+q.append(A)
+for i in range(m-1):
+    a,b = ls[-1-i]
+    print("---",a,b)
+    if U.same(a,b):
+        q.append(A)
+    else:
+        print(a,U.size(a), b,U.size(b))
+        x = U.size(a)*U.size(b)
+        A -= x
+        U.unite(a,b)
+        q.append(A)
+
+while q:
+    y = q.pop()
+    print(y)

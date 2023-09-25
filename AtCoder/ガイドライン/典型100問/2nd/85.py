@@ -1,3 +1,4 @@
+
 #UnionFind
 from collections import defaultdict
 
@@ -141,3 +142,12 @@ class UnionFind():
         for member in range(self.n):
             group_members[self.find(member)].append(member)
         return group_members
+
+a,b = map(int,input().split())
+U = UnionFind(a)
+for i in range(b):
+    c,x,y = map(int,input().split())
+    if c == 0:
+        U.unite(x,y)
+    else:
+        print(U.same(x,y))
