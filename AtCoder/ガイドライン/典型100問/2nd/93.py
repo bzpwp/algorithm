@@ -10,7 +10,7 @@ def delete(grid, repeat, score):
         l = grid[i]
         for j in range(w,k-1, -1): #幅
             for m in range(w+1-j): #始点
-                if all(i == l[m] for i in l[m:m+j]):
+                if all(i == l[m] for i in l[m:m+j]) and l[m]!= -1:
                     score += (l[m]*j)*2**repeat
                     l[m:m+j] = [0]*j
                     bool = True
@@ -37,20 +37,22 @@ def check(grid):
                 return True
     return False
 
-# for a in range(1,h):
-for a in range(1,2):
-    # for b in range(w):
-    for b in range(1,2):
+for a in range(1,h):
+# for a in range(1,2):
+    for b in range(w):
+    # for b in range(1,2):
         grid = copy.deepcopy(grid_ori)
         grid[a][b] = 0
         down(grid)
         # print(grid)
         score = 0
         num = 0
+        # for i in range(5):
         while True:
             bool, score = delete(grid,num,score)
-            print(bool)
-            print(grid)
+            # print(score)
+            # print(bool)
+            # print(grid)
             if not bool:
                 break
             while check(grid):
