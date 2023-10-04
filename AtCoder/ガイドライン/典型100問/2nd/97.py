@@ -1,31 +1,5 @@
-# 最大公約数
-import math
-x,y = map(int,input().split())
-math.gcd(x, y)
-
-# ユークリッドの互除法
-def gcd(a, b):
-    if b==0:
-        return a
-    else:
-        return gcd(b, a%b)
-
-# 拡張ユークリッドの互除法
-
-def extgcd(a, b):
-    d = a
-    if b != 0:
-        d, y, x = extgcd(b, a % b)
-        y -= (a // b) * x
-    else:
-        x = 1
-        y = 0
-    return d, x, y
-
-# ax + by = 1
-
-# 入力
-a, b = map(int,input().split())
+n,m = map(int,input().split())
+ls = list(map(int,input().split()))
 
 # 拡張ユークリッドの互除法
 def extgcd(a, b):
@@ -37,11 +11,6 @@ def extgcd(a, b):
         x = 1
         y = 0
     return d, x, y
-
-d, x, y = extgcd(a, b) # d = GCD
-
-print(d,x,y)
-
 
 
 import math
@@ -92,7 +61,17 @@ def ans(a,b,c,d): #c,dは初項
             X = math.ceil(max(c, d) - d)/((a*b)/e)
             return True, int(d + b*((a/e)*X)), int((a*b)/e) #初項、増分
 
-x,y= ans(6,10,3,5)
-print(x,y)
+a,c = ls[0], ls[0]//2
+for i in range(n-1):
+    b,d = ls[i+1], ls[i+1]//2
+    boo, first, add = ans(a,b,c,d)
+    if boo:
+        a,c = add,first
+    else:
+        print(0)
+        exit()
 
-    
+if m < first:
+    print(0)
+else:
+    print((m-first)//add + 1)
