@@ -4,6 +4,7 @@ ls = [0] + list(map(int,input().split()))
 # import itertools
 acc = [ls[i+1] - ls[i] for i in range(n)]
 acc.sort()
+print(acc)
 ok = 0
 ng = n
 while ng-ok>1:
